@@ -1,0 +1,133 @@
+:root {
+  --color-gris-claro: #d6dddd;
+  --color-gris-oscuro: #2d2d2d;
+  --color-negro: #222222;
+  --color-blanco: #fff;
+  --color-naranja: #ff6600;
+  --color-verde: #4caf50;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-gris-oscuro);
+  background-color: var(--color-blanco);
+}
+
+#menu {
+  width: 290px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background-color: var(--color-gris-oscuro);
+  transition: left 0.3s;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#menu ul li {
+  padding: 10px;
+  text-align: center;
+}
+
+#menu ul li a {
+  color: var(--color-gris-claro);
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-naranja);
+  padding: 15px 20px;
+}
+
+.menu-icon,
+.logo {
+  display: flex;
+  flex: 1;
+}
+
+.top-section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-icon {
+  justify-content: flex-start;
+  position: absolute;
+  left: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menu-icon img {
+  height: auto;
+}
+
+.logo {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 146px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  max-width: 350px;
+  margin: 14px auto 0 auto;
+}
+
+.actions button {
+  padding: 6px 0;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  width: 165px;
+  font-weight: 300;
+}
+
+.actions .login-btn {
+  background-color: transparent;
+  border: 1px solid var(--color-blanco);
+  color: var(--color-blanco);
+}
+
+.actions .register-btn {
+  background-color: var(--color-verde);
+  border: 1px solid var(--color-verde);
+  color: var(--color-blanco);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px;
+}
+
+.close-icon img {
+  height: 14px;
+  width: auto;
+}
