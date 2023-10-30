@@ -37,23 +37,49 @@ body {
 .menu-item {
   position: relative;
   width: 100%;
-  display: block;
+  line-height: 1.5;
+  display: block; /* Cambia de flex a block */
+  align-items: center;
   cursor: pointer;
   padding: 10px 0;
   color: var(--color-gris-claro);
 }
 
-.menu-item span {
-  margin-left: 30px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 10px;
-  color: var(--color-gris-claro);
-  display: block;
+.menu-item-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  justify-content: space-between; /* Centra el contenido y sitúa el triángulo a la derecha */
+}
+
+.menu-item:hover .submenu {
+  max-height: 750px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
 }
 
 .menu-item.active {
   color: var(--color-naranja);
+}
+
+.submenu {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  background-color: var(--color-gris-oscuro);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.submenu li {
+  color: var(--color-gris-claro);
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  list-style-type: none;
 }
 
 .navbar {
@@ -152,6 +178,7 @@ body {
   height: 15px;
   transform: translateY(-50%);
   z-index: 10;
+  margin-left: auto;
 }
 
 .triangle-icon::before,
@@ -170,7 +197,7 @@ body {
 
 .triangle-icon::before {
   border-bottom: 7px solid var(--color-naranja);
-  display: none;
+  display: none; /* Esconderlo por defecto */
 }
 
 .triangle-icon::after {
@@ -183,22 +210,4 @@ body {
 
 .triangle-icon.active::after {
   display: none;
-}
-
-.submenu {
-  display: none;
-  width: 100%;
-  background-color: var(--color-gris-oscuro);
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-}
-
-.submenu li {
-  color: var(--color-gris-claro);
-  padding: 8px 15px;
-  cursor: pointer;
-  font-size: 14px;
-  list-style-type: none;
 }
