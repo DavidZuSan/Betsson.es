@@ -53,7 +53,7 @@ body {
   justify-content: space-between; /* Centra el contenido y sitúa el triángulo a la derecha */
 }
 
-.menu-item:hover .submenu {
+.menu-item .submenu {
   max-height: 750px;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
@@ -64,6 +64,7 @@ body {
 }
 
 .submenu {
+  display: none;
   width: 100%;
   max-height: 0;
   overflow: hidden;

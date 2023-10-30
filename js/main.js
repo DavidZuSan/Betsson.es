@@ -31,7 +31,7 @@ $(document).ready(function () {
 
   // Función para manejar el despliegue y ocultamiento del submenú en el ítem "Casino"
   $(".menu-item").click(function (e) {
-    e.stopPropagation(); // Evitar que el evento se propague y afecte a otros elementos
+    e.stopPropagation();
 
     var submenu = $(this).find(".submenu");
     var triangleIcon = $(this).find(".triangle-icon");
