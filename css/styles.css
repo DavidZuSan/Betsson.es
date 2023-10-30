@@ -24,24 +24,36 @@ body {
   height: 100%;
   position: fixed;
   top: 0;
-  left: -250px;
+  left: -290px;
   background-color: var(--color-gris-oscuro);
   transition: left 0.3s;
 }
 
 #menu ul {
   list-style-type: none;
-  padding: 0;
+  padding-top: 40px;
 }
 
-#menu ul li {
-  padding: 10px;
-  text-align: center;
-}
-
-#menu ul li a {
+.menu-item {
+  position: relative;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  padding: 10px 0;
   color: var(--color-gris-claro);
-  text-decoration: none;
+}
+
+.menu-item span {
+  margin-left: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 10px;
+  color: var(--color-gris-claro);
+  display: block;
+}
+
+.menu-item.active {
+  color: var(--color-naranja);
 }
 
 .navbar {
@@ -130,4 +142,63 @@ body {
 .close-icon img {
   height: 14px;
   width: auto;
+}
+
+.triangle-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.triangle-icon::before,
+.triangle-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.triangle-icon::before {
+  border-bottom: 7px solid var(--color-naranja);
+  display: none;
+}
+
+.triangle-icon::after {
+  border-top: 7px solid var(--color-gris-claro);
+}
+
+.triangle-icon.active::before {
+  display: block;
+}
+
+.triangle-icon.active::after {
+  display: none;
+}
+
+.submenu {
+  display: none;
+  width: 100%;
+  background-color: var(--color-gris-oscuro);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.submenu li {
+  color: var(--color-gris-claro);
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  list-style-type: none;
 }
