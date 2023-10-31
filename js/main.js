@@ -75,5 +75,5 @@ $(document).ready(function () {
     });
   }
 
-  // setInterval(switchToNext, 3000);
+  setInterval(switchToNext, 3000);
 });
