@@ -1,5 +1,5 @@
 :root {
-  --color-gris-claro: #d6dddd;
+  --color-gris-claro: #c8cfcf;
   --color-gris-oscuro: #2d2d2d;
   --color-negro: #222222;
   --color-blanco: #fff;
@@ -27,40 +27,45 @@ body {
   left: -290px;
   background-color: var(--color-gris-oscuro);
   transition: left 0.3s;
+  z-index: 9999;
 }
 
 #menu ul {
   list-style-type: none;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
-.menu-item {
+#menu a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#menu-footer-wrapper {
+  padding-top: 10px;
+}
+
+.menu-item,
+.menu-footer li {
   position: relative;
   width: 100%;
   line-height: 1.5;
-  display: block; /* Cambia de flex a block */
+  display: block;
   align-items: center;
   cursor: pointer;
   padding: 10px 0;
   color: var(--color-gris-claro);
+  padding-left: 40px;
 }
 
 .menu-item-content {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%; /* Asegura que ocupe todo el ancho */
-  justify-content: space-between; /* Centra el contenido y sitúa el triángulo a la derecha */
-}
-
-.menu-item .submenu {
-  max-height: 750px;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
-}
-
-.menu-item.active {
-  color: var(--color-naranja);
+  width: 100%;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-blanco);
 }
 
 .submenu {
@@ -73,14 +78,31 @@ body {
   padding: 0;
   margin: 0;
   transition: max-height 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+.menu-item .submenu {
+  max-height: 750px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.menu-item.active .menu-item-content {
+  color: var(--color-naranja);
+}
+
+.submenu li:first-child {
+  margin-top: -40px;
 }
 
 .submenu li {
   color: var(--color-gris-claro);
-  padding: 8px 15px;
+  font-weight: 600;
   cursor: pointer;
   font-size: 14px;
   list-style-type: none;
+  line-height: 3;
+  padding-left: 35px;
 }
 
 .navbar {
@@ -159,16 +181,19 @@ body {
   color: var(--color-blanco);
 }
 
+/* Menu Hamburguesa */
 .menu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 17px;
+  padding-top: 12px;
+  padding-left: 15px;
 }
 
 .close-icon img {
   height: 14px;
   width: auto;
+  padding-right: 20px;
 }
 
 .triangle-icon {
@@ -198,7 +223,7 @@ body {
 
 .triangle-icon::before {
   border-bottom: 7px solid var(--color-naranja);
-  display: none; /* Esconderlo por defecto */
+  display: none;
 }
 
 .triangle-icon::after {
@@ -211,4 +236,112 @@ body {
 
 .triangle-icon.active::after {
   display: none;
+}
+
+.menu-footer {
+  padding: 10px;
+  text-align: left;
+}
+
+.linea-punteada {
+  border: none;
+  border-top: 1px dashed var(--color-gris-claro);
+  width: 80%;
+  margin: 15px auto;
+}
+
+.menu-footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-footer ul:first-child {
+  margin-top: -50px;
+}
+
+.menu-footer li {
+  margin-bottom: 10px;
+  color: var(--color-gris-claro);
+  padding-left: 35px;
+  line-height: 0.5;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Sección Promo */
+.promo-carousel {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.promo-carousel .promo-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+}
+
+.promo-carousel .promo-slide:first-of-type {
+  display: block;
+}
+
+.promo-carousel img {
+  width: 100%;
+  display: block;
+}
+
+.promo-carousel .promo-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+}
+
+.promo-carousel .promo-text {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  z-index: 3;
+}
+
+.promo-carousel p {
+  margin: 0;
+  padding: 5px 0;
+  font-size: 10px; /* Actualizado según las sugerencias */
+}
+
+.promo-carousel h1 {
+  margin-bottom: 10px;
+  font-size: 15px; /* Añadido para ajustar el tamaño del encabezado */
+}
+
+.promo-carousel .promo-button {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  width: 40px;
+  height: 40px;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 4;
+  transition: background-color 0.3s ease;
+}
+
+.promo-carousel .promo-button:hover {
+  background-color: rgba(255, 102, 0, 0.8);
 }

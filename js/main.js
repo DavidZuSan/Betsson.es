@@ -60,4 +60,20 @@ $(document).ready(function () {
     $(".triangle-icon").removeClass("active");
     $(".menu-item").removeClass("active");
   });
+
+  var currentIndex = 0;
+  var slides = $(".promo-carousel .promo-slide");
+
+  function switchToNext() {
+    var nextIndex = (currentIndex + 1) % slides.length;
+
+    $(slides[currentIndex]).css("z-index", 2);
+    $(slides[nextIndex]).css("z-index", 1).show();
+
+    $(slides[currentIndex]).fadeOut(1000, function () {
+      currentIndex = nextIndex;
+    });
+  }
+
+  // setInterval(switchToNext, 3000);
 });
