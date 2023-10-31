@@ -270,7 +270,7 @@ body {
 
 /* Sección Promo */
 .promo-carousel {
-  height: 400px;
+  height: 175px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -294,6 +294,7 @@ body {
 .promo-carousel img {
   width: 100%;
   display: block;
+  cursor: pointer;
 }
 
 .promo-carousel .promo-container {
@@ -340,4 +341,30 @@ body {
   cursor: pointer;
   z-index: 4;
   transition: background-color 0.3s ease;
+}
+
+/* Pasos Registro */
+.steps-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-naranja);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 30px;
+  font-weight: 600;
 }
