@@ -13,6 +13,14 @@
   box-sizing: border-box;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: var(--color-gris-oscuro);
@@ -353,13 +361,19 @@ body {
 .step {
   flex: 1;
   text-align: center;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.step:last-of-type {
+  margin-left: 20px;
 }
 
 .step-number {
   width: 50px;
   height: 50px;
   background-color: var(--color-naranja);
-  color: #fff;
+  color: var(--color-blanco);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -367,4 +381,65 @@ body {
   margin: 0 auto;
   font-size: 30px;
   font-weight: 600;
+}
+
+/* Promociones */
+.promociones {
+  display: flex;
+  overflow-x: scroll;
+  gap: 20px;
+}
+
+.promocion-card {
+  min-width: 300px;
+  border: 1px solid var(--color-gris-claro);
+  padding: 20px;
+  box-shadow: 0 4px 8px var(--color-negro);
+  border-radius: 5px;
+  position: relative;
+}
+
+.promocion-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.promocion-logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.promocion-title {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.promocion-description {
+  margin-top: 5px;
+}
+
+/* Estilos para el encabezado de la sección Promociones */
+.promociones-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Puedes ajustar este valor según lo necesites */
+}
+
+.promociones-header h2 {
+  font-size: 24px; /* Ajusta este valor según lo necesites */
+  margin: 0;
+}
+
+.promociones-header a {
+  text-decoration: none;
+  color: #ff4500; /* Puedes cambiar este color según tu diseño */
+  font-weight: bold;
+}
+
+.promociones-header a:hover {
+  text-decoration: underline;
 }

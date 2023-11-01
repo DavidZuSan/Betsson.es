@@ -1,4 +1,55 @@
 $(document).ready(function () {
+  // Función para Promos
+  let promoHtml = "";
+  promos.forEach((promo) => {
+    promoHtml += `
+    <div class="promo-slide">
+    <img src="${promo.image}" alt="${promo.altText}" />
+    <div class="promo-container">
+        <div class="promo-text">
+            <h1>${promo.title}</h1>
+            <p>${promo.description}</p>
+        </div>
+        <div class="promo-button">
+            <img src="img/icons/down-icon.svg" alt="Next">
+        </div>
+    </div>
+</div>`;
+  });
+
+  $("#promo-section .promo-carousel").html(promoHtml);
+
+  // Funcion para Inscripción
+  const steps = [
+    { number: "1", text: "Regístrate<br>en Betsson" },
+    { number: "2", text: "Verifica tu<br>cuenta" },
+    { number: "3", text: "Diviértete<br>con nosotros" },
+  ];
+
+  let stepsHtml = "";
+  steps.forEach((step) => {
+    stepsHtml += `
+      <div class="step">
+        <div class="step-number">${step.number}</div>
+        <p>${step.text}</p>
+      </div>`;
+  });
+
+  $(".steps-section").html(stepsHtml);
+
+  // Genera el HTML para las promociones de manera dinámica
+  let promocionesHtml = "";
+  promociones.forEach((promocion) => {
+    promocionesHtml += `
+        <div class="promocion-card">
+            <img src="${promocion.image}" alt="${promocion.altText}" />
+            <img class="promocion-logo" src="${promocion.logo}" alt="Logo de la promoción" />
+            <p class="promocion-description">${promocion.description}</p>
+        </div>`;
+  });
+
+  $(".promociones").html(promocionesHtml);
+
   // Función para abrir y cerrar el menú lateral
   $(".menu-icon").click(function (event) {
     var menu = $("#menu");
