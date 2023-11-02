@@ -1,5 +1,5 @@
 :root {
-  --color-gris-claro: #c8cfcf;
+  --color-gris-claro: #9b9b9b;
   --color-gris-oscuro: #2d2d2d;
   --color-negro: #222222;
   --color-blanco: #fff;
@@ -118,7 +118,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--color-naranja);
-  padding: 15px 20px;
+  padding: 15px 0px;
 }
 
 .menu-icon,
@@ -138,7 +138,7 @@ body {
 .menu-icon {
   justify-content: flex-start;
   position: absolute;
-  left: 5px;
+  left: 15px;
   display: flex;
   justify-content: flex-start;
 }
@@ -162,18 +162,19 @@ body {
 .actions {
   display: flex;
   justify-content: space-between;
-  max-width: 350px;
+  max-width: 320px;
   margin: 14px auto 0 auto;
+  padding: 0;
 }
 
 .actions button {
   padding: 6px 0;
-  margin: 0 5px;
+  margin: 0;
   border: none;
   cursor: pointer;
   font-size: 14px;
   border-radius: 5px;
-  width: 165px;
+  width: 160px;
   font-weight: 300;
 }
 
@@ -181,12 +182,14 @@ body {
   background-color: transparent;
   border: 1px solid var(--color-blanco);
   color: var(--color-blanco);
+  margin-right: 5px;
 }
 
 .actions .register-btn {
   background-color: var(--color-verde);
   border: 1px solid var(--color-verde);
   color: var(--color-blanco);
+  margin-left: 5px;
 }
 
 /* Menu Hamburguesa */
@@ -278,7 +281,7 @@ body {
 
 /* Sección Promo */
 .promo-carousel {
-  height: 175px;
+  height: 145px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -300,9 +303,12 @@ body {
 }
 
 .promo-carousel img {
-  width: 100%;
+  width: 110%;
+  height: 110%;
   display: block;
   cursor: pointer;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
 .promo-carousel .promo-container {
@@ -310,12 +316,12 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
 }
 
 .promo-carousel .promo-text {
-  color: #fff;
+  color: var(--color-blanco);
   padding: 0;
   margin: 0;
   border-radius: 5px;
@@ -383,63 +389,107 @@ body {
   font-weight: 600;
 }
 
-/* Promociones */
-.promociones {
-  display: flex;
-  overflow-x: scroll;
-  gap: 20px;
-}
-
-.promocion-card {
-  min-width: 300px;
-  border: 1px solid var(--color-gris-claro);
-  padding: 20px;
-  box-shadow: 0 4px 8px var(--color-negro);
-  border-radius: 5px;
-  position: relative;
-}
-
-.promocion-card img {
-  max-width: 100%;
-  border-radius: 5px;
-}
-
-.promocion-logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 50px;
-  height: 50px;
-}
-
-.promocion-title {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.promocion-description {
-  margin-top: 5px;
-}
-
-/* Estilos para el encabezado de la sección Promociones */
+/* Encabezado de la sección Promociones */
 .promociones-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px; /* Puedes ajustar este valor según lo necesites */
+  justify-content: space-between;
+  margin: 20px 15px;
+  border-bottom: 2px solid var(--color-naranja);
 }
 
-.promociones-header h2 {
-  font-size: 24px; /* Ajusta este valor según lo necesites */
-  margin: 0;
+.promociones-header .title {
+  font-size: 14px;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 28px;
 }
 
 .promociones-header a {
   text-decoration: none;
-  color: #ff4500; /* Puedes cambiar este color según tu diseño */
-  font-weight: bold;
+  color: var(--color-gris-claro);
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 0px;
 }
 
-.promociones-header a:hover {
-  text-decoration: underline;
+/* Promociones */
+.promociones {
+  display: flex;
+  overflow-x: scroll;
+  margin: 20px 17px;
+  gap: 20px;
+}
+
+.promocion-card {
+  position: relative;
+  min-width: 265px;
+}
+
+.promocion-card img {
+  max-width: 100%;
+  display: block;
+}
+
+.promocion-logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-naranja);
+  box-sizing: border-box;
+}
+
+.promocion-title {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.promocion-description {
+  margin-top: 0;
+  font-size: 12px;
+  background-color: #f3f3f3;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Destacados */
+.destacados {
+  display: flex;
+  overflow-x: scroll;
+  margin: 20px 17px;
+  gap: 20px;
+}
+
+.destacado-card {
+  position: relative;
+  min-width: 265px;
+}
+
+.destacado-card img {
+  max-width: 100%;
+  display: block;
+}
+
+.destacado-logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-naranja);
+  box-sizing: border-box;
+}
+
+.destacado-description {
+  margin-top: 0;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #f3f3f3;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  width: 100%;
 }

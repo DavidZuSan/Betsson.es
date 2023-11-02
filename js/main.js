@@ -50,6 +50,19 @@ $(document).ready(function () {
 
   $(".promociones").html(promocionesHtml);
 
+  // Genera el HTML para los destacados de manera dinámica
+  let destacadosHtml = "";
+  destacados.forEach((destacado) => {
+    destacadosHtml += `
+      <div class="destacado-card">
+          <img src="${destacado.image}" alt="${destacado.altText}" />
+          <img class="destacado-logo" src="${destacado.logo}" alt="Logo del destacado" />
+          <p class="destacado-description">${destacado.description}</p>
+      </div>`;
+  });
+
+  $(".destacados").html(destacadosHtml);
+
   // Función para abrir y cerrar el menú lateral
   $(".menu-icon").click(function (event) {
     var menu = $("#menu");
