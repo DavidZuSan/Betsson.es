@@ -171,3 +171,14 @@ $(document).ready(function () {
 
   setInterval(switchToNext, 3000);
 });
+
+// Función para cambiar la orientación del triángulo al hacer clic en el botón
+$(".info-button").on("click", function () {
+  $(this).toggleClass("active");
+
+  if ($(this).hasClass("active")) {
+    $(".info-text").slideDown();
+  } else {
+    $(".info-text").slideUp();
+  }
+});
