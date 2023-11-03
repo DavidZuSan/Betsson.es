@@ -53,12 +53,42 @@ $(document).ready(function () {
   // Genera el HTML para los destacados de manera dinámica
   let destacadosHtml = "";
   destacados.forEach((destacado) => {
+    let badgeHtml = "";
+
+    // Función para generar el badgeHtml según el tipo
+    const generateBadge = (t) => {
+      let badgeClass = "";
+      switch (t) {
+        case "Hot":
+          badgeClass = "badge-hot";
+          break;
+        case "New":
+          badgeClass = "badge-new";
+          break;
+        case "Exclusive":
+          badgeClass = "badge-exclusive";
+          break;
+      }
+      return `<span class="badge ${badgeClass}">${t}</span>`;
+    };
+
+    // Verifica si tipo es un array
+    if (Array.isArray(destacado.tipo)) {
+      destacado.tipo.forEach((t) => {
+        badgeHtml += generateBadge(t);
+      });
+    } else {
+      badgeHtml = generateBadge(destacado.tipo);
+    }
+
     destacadosHtml += `
-      <div class="destacado-card">
-          <img src="${destacado.image}" alt="${destacado.altText}" />
-          <img class="destacado-logo" src="${destacado.logo}" alt="Logo del destacado" />
-          <p class="destacado-description">${destacado.description}</p>
-      </div>`;
+    <div class="destacado-card ${destacado.isThird ? "third-card" : ""}">
+        <div class="badges-wrapper">
+            ${badgeHtml}
+        </div>
+        <img src="${destacado.image}" alt="${destacado.altText}" />
+        <p class="destacado-description">${destacado.description}</p>
+    </div>`;
   });
 
   $(".destacados").html(destacadosHtml);

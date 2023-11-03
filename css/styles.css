@@ -1,5 +1,5 @@
 :root {
-  --color-gris-claro: #9b9b9b;
+  --color-gris-claro: #e7e7e7;
   --color-gris-oscuro: #2d2d2d;
   --color-negro: #222222;
   --color-blanco: #fff;
@@ -24,7 +24,7 @@ header {
 body {
   font-family: "Open Sans", sans-serif;
   color: var(--color-gris-oscuro);
-  background-color: var(--color-blanco);
+  background-color: var(--color-gris-claro);
 }
 
 #menu {
@@ -162,7 +162,7 @@ body {
 .actions {
   display: flex;
   justify-content: space-between;
-  max-width: 320px;
+  max-width: 319px;
   margin: 14px auto 0 auto;
   padding: 0;
 }
@@ -287,13 +287,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 20px;
+  padding: 100px;
 }
 
 .promo-carousel .promo-slide {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
   display: none;
   width: 100%;
 }
@@ -317,7 +318,7 @@ body {
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px 20px;
+  padding: 6px 20px;
 }
 
 .promo-carousel .promo-text {
@@ -331,13 +332,13 @@ body {
 .promo-carousel p {
   margin: 0;
   padding: 5px 0;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
 }
 
 .promo-carousel h1 {
   margin-bottom: -5px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -345,7 +346,7 @@ body {
   position: absolute;
   right: 10%;
   bottom: 35%;
-  width: 20px;
+  width: 22px;
   height: 20px;
   background-color: var(--color-naranja);
   display: flex;
@@ -423,8 +424,21 @@ body {
 }
 
 .promocion-card {
+  transition: box-shadow 0.3s ease;
   position: relative;
   min-width: 265px;
+}
+
+.promocion-card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.promocion-card:first-child {
+  margin-left: 10px;
+}
+
+.promocion-card:last-child {
+  margin-right: 10px;
 }
 
 .promocion-card img {
@@ -450,18 +464,50 @@ body {
 .promocion-description {
   margin-top: 0;
   font-size: 12px;
+  font-weight: lighter;
   background-color: #f3f3f3;
   padding: 15px 20px;
   box-sizing: border-box;
   width: 100%;
 }
 
+/* Encabezado de la sección Destacado */
+.destacados-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 15px;
+  border-bottom: 2px solid var(--color-naranja);
+}
+
+.destacados-header .title {
+  font-size: 14px;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 28px;
+}
+
+.destacados-header a {
+  text-decoration: none;
+  color: var(--color-gris-claro);
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 0px;
+}
+
 /* Destacados */
 .destacados {
   display: flex;
   overflow-x: scroll;
-  margin: 20px 17px;
   gap: 20px;
+}
+
+.destacados::before,
+.destacados::after {
+  content: "";
+  flex: 0 0 5px;
+  height: 1px;
 }
 
 .destacado-card {
@@ -472,6 +518,7 @@ body {
 .destacado-card img {
   max-width: 100%;
   display: block;
+  margin-bottom: 0;
 }
 
 .destacado-logo {
@@ -487,9 +534,122 @@ body {
 .destacado-description {
   margin-top: 0;
   font-size: 12px;
-  font-weight: 600;
-  background-color: #f3f3f3;
+  font-weight: bold;
+  background-color: var(--color-blanco);
   padding: 15px 20px;
   box-sizing: border-box;
   width: 100%;
+}
+
+.destacado-card .image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Diseño Etiqueta */
+.badge {
+  display: block;
+  position: static;
+  padding: 5px 10px;
+  color: var(--color-blanco);
+  font-weight: bold;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+
+.third-card .badge-new {
+  width: 65px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badges-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.badge-hot {
+  background-color: red;
+}
+
+.badge-new {
+  background-color: var(--color-naranja);
+}
+
+.badge-exclusive {
+  background-color: var(--color-gris-oscuro);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-gris-claro);
+  padding: 60px 30px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content h2 {
+  font-size: 14px;
+  color: var(--color-naranja);
+  margin-bottom: 15px;
+}
+
+.footer-content p {
+  font-size: 11px;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+.footer-content button {
+  background-color: var(--color-gris-claro);
+  color: var(--color-naranja);
+  padding: 5px 20px 5px 10px;
+  border: 1px solid var(--color-naranja);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 12px;
+  text-align: left;
+}
+
+.footer-content button:hover {
+  background-color: var(--color-naranja);
+  color: var(--color-blanco);
+}
+
+.info-button {
+  position: relative;
+  padding-right: 40px;
+}
+
+.info-button .triangle-icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.info-button .triangle-icon::before {
+  border-bottom: 7px solid var(--color-naranja);
+}
+
+.info-button .triangle-icon::after {
+  border-top: 7px solid var(--color-naranja);
+}
+
+.footer-content button:hover .triangle-icon::before {
+  border-bottom: 7px solid var(--color-blanco);
+}
+
+.footer-content button:hover .triangle-icon::after {
+  border-top: 7px solid var(--color-blanco);
 }
