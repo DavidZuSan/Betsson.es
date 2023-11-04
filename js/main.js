@@ -1,3 +1,8 @@
+/**
+ * Autor: David Zurita Sánchez
+ * Fecha de creación: Nov 2023
+ */
+
 $(document).ready(function () {
   // Función para Promos
   let promoHtml = "";
