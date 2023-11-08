@@ -88,15 +88,64 @@ $(document).ready(function () {
 
     destacadosHtml += `
     <div class="destacado-card ${destacado.isThird ? "third-card" : ""}">
-        <div class="badges-wrapper">
-            ${badgeHtml}
+      <div class="badges-wrapper">
+        ${badgeHtml}
+      </div>
+      <div class="image-container">
+        <img src="${destacado.image}" alt="${
+      destacado.altText
+    }" class="destacado-img" />
+        <div class="overlay">
+          <button class="overlay-button">Entrar</button>
         </div>
-        <img src="${destacado.image}" alt="${destacado.altText}" />
-        <p class="destacado-description">${destacado.description}</p>
+      </div>
+      <p class="destacado-description">${destacado.description}</p>
     </div>`;
   });
 
   $(".destacados").html(destacadosHtml);
+
+  // Evento de clic para mostrar la cortinilla
+  $(document).on("mouseenter", ".destacado-card .image-container", function () {
+    var $overlay = $(this).find(".overlay");
+    $overlay.css({
+      display: "flex",
+      opacity: "1",
+      transform: "translateY(0%)",
+    });
+  });
+
+  // Evento para ocultar la cortinilla cuando el mouse deja la imagen
+  $(document).on("mouseleave", ".destacado-card .image-container", function () {
+    var $overlay = $(this).find(".overlay");
+    $overlay.css({
+      opacity: "0",
+      transform: "translateY(-100%)",
+    });
+    // Restablecer el display después de que la transición de desaparición haya terminado
+    setTimeout(function () {
+      if ($overlay.css("opacity") == "0") {
+        $overlay.css("display", "none");
+      }
+    }, 500);
+  });
+
+  // Si deseas que la cortinilla se oculte al hacer clic fuera de ella
+  $(document).on("click", function (e) {
+    if (
+      !$(e.target).is(".destacado-card img") &&
+      !$(e.target).closest(".overlay").length
+    ) {
+      $(".overlay").css({
+        opacity: "0",
+        transform: "translateY(-100%)",
+      });
+      // Opcionalmente, ocultar después de la transición
+      setTimeout(function () {
+        $(".overlay").hide();
+      }, 500);
+    }
+  });
 
   // Función para abrir y cerrar el menú lateral
   $(".menu-icon").click(function (event) {

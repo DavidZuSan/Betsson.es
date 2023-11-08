@@ -1,3 +1,28 @@
+#menu,
+.submenu {
+  background-color: var(--color-gris-oscuro);
+  z-index: 9999;
+}
+.menu-item .submenu,
+.submenu {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+.menu-item-content,
+.submenu li {
+  font-weight: 600;
+  font-size: 14px;
+}
+.logo img,
+.menu-icon img {
+  height: auto;
+}
+#menu ul,
+.menu-footer ul,
+.submenu,
+.submenu li {
+  list-style-type: none;
+}
 :root {
   --color-gris-claro: #9e9e9e;
   --color-gris-oscuro: #2d2d2d;
@@ -6,13 +31,11 @@
   --color-naranja: #ff6600;
   --color-verde: #4caf50;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 header {
   position: sticky;
   top: 0;
@@ -20,159 +43,136 @@ header {
   width: 100%;
   z-index: 1000;
 }
-
 body {
   font-family: "Open Sans", sans-serif;
   color: var(--color-gris-oscuro);
   background-color: var(--color-blanco);
 }
-
 h2 {
   font-size: 14px;
   color: var(--color-naranja);
   margin-bottom: 15px;
 }
-
 #menu {
   width: 290px;
   height: 100%;
   position: fixed;
   top: 0;
   left: -290px;
-  background-color: var(--color-gris-oscuro);
   transition: left 0.3s;
-  z-index: 9999;
 }
-
 #menu ul {
-  list-style-type: none;
   padding-top: 60px;
 }
-
 #menu a {
   color: inherit;
   text-decoration: none;
 }
-
 #menu-footer-wrapper {
   padding-top: 10px;
 }
-
-.menu-item,
-.menu-footer li {
+.menu-footer li,
+.menu-item {
   position: relative;
   width: 100%;
   line-height: 1.5;
   display: block;
   align-items: center;
   cursor: pointer;
-  padding: 10px 0;
+  padding: 10px 0 10px 40px;
   color: var(--color-gris-claro);
-  padding-left: 40px;
 }
-
+.actions .login-btn,
+.actions .register-btn,
+.badge,
+.footer-content button:hover,
+.menu-item-content,
+.step-number {
+  color: var(--color-blanco);
+}
 .menu-item-content {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-blanco);
 }
-
-.submenu {
+.submenu,
+.triangle-icon::before {
   display: none;
+}
+.submenu {
   width: 100%;
   max-height: 0;
-  overflow: hidden;
-  background-color: var(--color-gris-oscuro);
-  list-style-type: none;
   padding: 0;
   margin: 0;
-  transition: max-height 0.3s ease-in-out;
-  z-index: 9999;
 }
-
+.logo,
+.menu-icon,
+.navbar,
+.top-section {
+  display: flex;
+}
 .menu-item .submenu {
   max-height: 750px;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
 }
-
+.footer-links a,
 .menu-item.active .menu-item-content {
   color: var(--color-naranja);
 }
-
+.menu-footer li,
+.submenu li {
+  color: var(--color-gris-claro);
+}
 .submenu li:first-child {
   margin-top: -40px;
 }
-
 .submenu li {
-  color: var(--color-gris-claro);
-  font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
-  list-style-type: none;
   line-height: 3;
   padding-left: 35px;
 }
-
 .navbar {
-  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--color-naranja);
-  padding: 15px 0px;
+  padding: 15px 0;
 }
-
-.menu-icon,
-.logo {
+.logo,
+.menu-icon {
   display: flex;
   flex: 1;
 }
-
 .top-section {
   position: relative;
-  display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
-
 .menu-icon {
   justify-content: flex-start;
   position: absolute;
   left: 15px;
-  display: flex;
   justify-content: flex-start;
 }
-
-.menu-icon img {
-  height: auto;
-}
-
 .logo {
   flex: 2;
-  display: flex;
   justify-content: center;
 }
-
+.actions,
+.menu-header {
+  justify-content: space-between;
+  display: flex;
+}
 .logo img {
   width: 146px;
-  height: auto;
   margin: 10px 0;
 }
-
 .actions {
-  display: flex;
-  justify-content: space-between;
   max-width: 319px;
-  margin: 14px auto 0 auto;
+  margin: 14px auto 0;
   padding: 0;
 }
-
 .actions button {
   padding: 6px 0;
   margin: 0;
@@ -183,36 +183,30 @@ h2 {
   width: 160px;
   font-weight: 300;
 }
-
 .actions .login-btn {
   background-color: transparent;
   border: 1px solid var(--color-blanco);
-  color: var(--color-blanco);
   margin-right: 5px;
 }
-
 .actions .register-btn {
   background-color: var(--color-verde);
   border: 1px solid var(--color-verde);
-  color: var(--color-blanco);
   margin-left: 5px;
 }
-
-/* Menu Hamburguesa */
+.info-button .triangle-icon::before,
+.triangle-icon::before {
+  border-bottom: 7px solid var(--color-naranja);
+}
 .menu-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   padding-top: 12px;
   padding-left: 15px;
 }
-
 .close-icon img {
   height: 14px;
   width: auto;
   padding-right: 20px;
 }
-
 .triangle-icon {
   position: absolute;
   top: 50%;
@@ -223,9 +217,8 @@ h2 {
   z-index: 10;
   margin-left: auto;
 }
-
-.triangle-icon::before,
-.triangle-icon::after {
+.triangle-icon::after,
+.triangle-icon::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -237,55 +230,43 @@ h2 {
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
-
-.triangle-icon::before {
-  border-bottom: 7px solid var(--color-naranja);
-  display: none;
-}
-
 .triangle-icon::after {
   border-top: 7px solid var(--color-gris-claro);
 }
-
+.promo-carousel .promo-slide:first-of-type,
 .triangle-icon.active::before {
   display: block;
 }
-
 .triangle-icon.active::after {
   display: none;
 }
-
 .menu-footer {
   padding: 10px;
   text-align: left;
 }
-
+.partnerimg,
+.step {
+  text-align: center;
+}
 .linea-punteada {
   border: none;
   border-top: 1px dashed var(--color-gris-claro);
   width: 80%;
   margin: 15px auto;
 }
-
 .menu-footer ul {
-  list-style-type: none;
   padding: 0;
 }
-
 .menu-footer ul:first-child {
   margin-top: -50px;
 }
-
 .menu-footer li {
   margin-bottom: 10px;
-  color: var(--color-gris-claro);
   padding-left: 35px;
   line-height: 0.5;
   font-size: 14px;
   font-weight: 600;
 }
-
-/* Sección Promo */
 .promo-carousel {
   height: 145px;
   position: relative;
@@ -295,7 +276,36 @@ h2 {
   align-items: flex-end;
   padding: 100px;
 }
-
+.destacados,
+.promociones {
+  overflow-x: scroll;
+  gap: 20px;
+}
+.image-container {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  transform: translateY(-100%);
+  z-index: 10;
+}
+.overlay-button {
+  padding: 10px 90px;
+  background-color: var(--color-naranja);
+  border: none;
+  color: #efefef;
+  cursor: pointer;
+}
 .promo-carousel .promo-slide {
   position: absolute;
   top: 0;
@@ -304,11 +314,6 @@ h2 {
   display: none;
   width: 100%;
 }
-
-.promo-carousel .promo-slide:first-of-type {
-  display: block;
-}
-
 .promo-carousel img {
   width: 110%;
   height: 110%;
@@ -317,7 +322,6 @@ h2 {
   object-fit: cover;
   object-position: center bottom;
 }
-
 .promo-carousel .promo-container {
   position: absolute;
   bottom: 0;
@@ -326,7 +330,6 @@ h2 {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 6px 20px;
 }
-
 .promo-carousel .promo-text {
   color: var(--color-blanco);
   padding: 0;
@@ -334,69 +337,58 @@ h2 {
   border-radius: 5px;
   z-index: 3;
 }
-
+.promo-carousel .promo-button,
+.step-number {
+  border-radius: 50%;
+  background-color: var(--color-naranja);
+  display: flex;
+}
 .promo-carousel p {
   margin: 0;
   padding: 5px 0;
   font-size: 11px;
   font-weight: 600;
 }
-
 .promo-carousel h1 {
   margin-bottom: -5px;
   font-size: 15px;
   font-weight: 600;
 }
-
 .promo-carousel .promo-button {
   position: absolute;
   right: 10%;
   bottom: 35%;
   width: 22px;
   height: 20px;
-  background-color: var(--color-naranja);
-  display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
   cursor: pointer;
   z-index: 4;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
-
-/* Pasos Registro */
 .steps-section {
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
 }
-
 .step {
   flex: 1;
-  text-align: center;
   font-weight: 600;
   font-size: 22px;
 }
-
 .step:last-of-type {
   margin-left: 20px;
 }
-
 .step-number {
   width: 50px;
   height: 50px;
-  background-color: var(--color-naranja);
-  color: var(--color-blanco);
-  border-radius: 50%;
-  display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   font-size: 30px;
   font-weight: 600;
 }
-
-/* Encabezado de la sección Promociones */
+.destacados-header,
 .promociones-header {
   display: flex;
   align-items: center;
@@ -404,7 +396,7 @@ h2 {
   margin: 20px 15px;
   border-bottom: 2px solid var(--color-naranja);
 }
-
+.destacados-header .title,
 .promociones-header .title {
   font-size: 14px;
   letter-spacing: -0.5px;
@@ -412,159 +404,97 @@ h2 {
   text-transform: uppercase;
   line-height: 28px;
 }
-
+.destacados-header a,
 .promociones-header a {
   text-decoration: none;
   color: var(--color-gris-claro);
   font-size: 12px;
   padding-top: 4px;
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
-
-/* Promociones */
 .promociones {
   display: flex;
-  overflow-x: scroll;
   margin: 20px 17px;
-  gap: 20px;
 }
-
 .promocion-card {
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s;
   position: relative;
   min-width: 265px;
 }
-
 .promocion-card:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .promocion-card:first-child {
   margin-left: 10px;
 }
-
 .promocion-card:last-child {
   margin-right: 10px;
 }
-
 .promocion-card img {
   max-width: 100%;
   display: block;
 }
-
+.destacado-logo,
 .promocion-logo {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 35px;
   height: 35px;
   background-color: var(--color-naranja);
   box-sizing: border-box;
 }
-
-.promocion-title {
-  font-weight: bold;
-  margin-top: 0;
-}
-
+.destacado-description,
 .promocion-description {
   margin-top: 0;
   font-size: 12px;
-  font-weight: lighter;
-  background-color: #fff;
+  background-color: #efefef;
   padding: 15px 20px;
   box-sizing: border-box;
   width: 100%;
 }
-
-/* Encabezado de la sección Destacado */
-.destacados-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 15px;
-  border-bottom: 2px solid var(--color-naranja);
+.promocion-title {
+  font-weight: 700;
+  margin-top: 0;
 }
-
-.destacados-header .title {
-  font-size: 14px;
-  letter-spacing: -0.5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 28px;
+.promocion-description {
+  font-weight: lighter;
 }
-
-.destacados-header a {
-  text-decoration: none;
-  color: var(--color-gris-claro);
-  font-size: 12px;
-  padding-top: 4px;
-  padding-bottom: 0px;
-}
-
-/* Destacados */
 .destacados {
   display: flex;
-  overflow-x: scroll;
-  gap: 20px;
 }
-
-.destacados::before,
-.destacados::after {
+.destacados::after,
+.destacados::before {
   content: "";
   flex: 0 0 5px;
   height: 1px;
 }
-
 .destacado-card {
   position: relative;
   min-width: 265px;
 }
-
 .destacado-card img {
   max-width: 100%;
   display: block;
   margin-bottom: 0;
 }
-
-.destacado-logo {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 35px;
-  height: 35px;
-  background-color: var(--color-naranja);
-  box-sizing: border-box;
-}
-
 .destacado-description {
-  margin-top: 0;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: #fff;
-  padding: 15px 20px;
-  box-sizing: border-box;
-  width: 100%;
+  font-weight: 700;
 }
-
 .destacado-card .image-wrapper {
   position: relative;
   display: inline-block;
 }
-
-/* Diseño Etiqueta */
 .badge {
   display: block;
   position: static;
   padding: 5px 10px;
-  color: var(--color-blanco);
-  font-weight: bold;
+  font-weight: 700;
   border-radius: 3px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   transform: rotate(-10deg);
   z-index: 1;
 }
-
 .third-card .badge-new {
   width: 65px;
   height: 30px;
@@ -572,44 +502,36 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-
 .badges-wrapper {
   position: absolute;
   top: 10px;
   left: 10px;
   z-index: 1;
 }
-
 .badge-hot {
   background-color: red;
 }
-
-.badge-new {
+.badge-new,
+.footer-content button:hover {
   background-color: var(--color-naranja);
 }
-
 .badge-exclusive {
   background-color: var(--color-gris-oscuro);
 }
-
-/* Footer */
 .footer-content {
-  padding: 30px 30px;
+  padding: 30px;
   max-width: 800px;
   margin: 0 auto;
   background-color: var(--color-blanco);
 }
-
 .footer-content p {
   font-size: 11px;
   font-weight: lighter;
   margin-bottom: 10px;
 }
-
 .footer-content p:last-of-type {
   margin-bottom: 30px;
 }
-
 .footer-content button {
   background-color: var(--color-blanco);
   color: var(--color-naranja);
@@ -622,17 +544,10 @@ h2 {
   font-size: 12px;
   text-align: left;
 }
-
-.footer-content button:hover {
-  background-color: var(--color-naranja);
-  color: var(--color-blanco);
-}
-
 .info-button {
   position: relative;
   padding-right: 40px;
 }
-
 .info-button .triangle-icon {
   position: absolute;
   right: 5px;
@@ -640,32 +555,22 @@ h2 {
   transform: translateY(-50%);
   transform-origin: 50% 5%;
 }
-
 .info-button.active .triangle-icon {
   transform: rotate(180deg) translateY(-50%);
 }
-
-.info-button .triangle-icon::before {
-  border-bottom: 7px solid var(--color-naranja);
-}
-
 .info-button .triangle-icon::after {
   border-top: 7px solid var(--color-naranja);
 }
-
 .footer-content button:hover .triangle-icon::before {
   border-bottom: 7px solid var(--color-blanco);
 }
-
 .footer-content button:hover .triangle-icon::after {
   border-top: 7px solid var(--color-blanco);
 }
-
 .footer-content .info-text a {
   text-decoration: none;
   color: var(--color-naranja);
 }
-
 .my-custom-hr {
   width: 90%;
   margin: 20px auto;
@@ -673,46 +578,44 @@ h2 {
   height: 0.5px;
   background-color: var(--color-gris-claro);
 }
-
-/* Footer-Second */
+.footer-logos,
+.footer-small,
+.footer-wrapper {
+  background-color: #efefef;
+}
 .footer-second {
   width: 100%;
   padding: 0;
 }
-
 .footer-wrapper {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 40px 10px 5px 10px;
-  background-color: #fff;
+  padding: 40px 10px 5px;
 }
-
 .footer-links {
   flex: 1;
   padding: 0 15px;
 }
-
 .footer-links ul {
   font-size: 12px;
   list-style: none;
   padding: 0;
 }
-
 .footer-links ul li {
   margin-bottom: 8px;
   color: var(--color-gris-claro);
 }
-
-.footer-links a {
-  color: var(--color-naranja);
-}
-
 .footer-links p {
   font-size: 12px;
   color: var(--color-gris-claro);
 }
-
+.footer-small a,
+.footer-small h2,
+.footer-small p {
+  font-size: 10px;
+  font-weight: lighter;
+}
 .footer-links button {
   border: 1px solid var(--color-naranja);
   background-color: transparent;
@@ -721,85 +624,58 @@ h2 {
   margin-top: 20px;
   color: var(--color-naranja);
 }
-
-/* Footer Logos */
 .footer-logos {
-  background-color: #fff;
   padding-top: 5px;
 }
-
+.auto-control,
 .payment-options,
-.safety-logos,
-.auto-control {
+.safety-logos {
   display: flex;
   justify-content: center;
   gap: 20px;
   padding-top: 15px;
 }
-
 .auto-control {
   padding-bottom: 20px;
 }
-
+#extra-size-bis img,
 .footer-logos img {
   width: 50px;
   height: auto;
 }
-
 #extra-size img {
   width: 80px;
   height: auto;
 }
-
-#extra-size-bis img {
-  width: 50px;
-  height: auto;
-}
-
-/* Footer Small */
 .footer-small {
   padding: 2px 30px;
   max-width: 800px;
   margin: 0 auto;
-  background-color: #fff;
 }
-
 .footer-small h2 {
-  font-size: 10px;
-  font-weight: lighter;
   margin-top: 25px;
 }
-
 .footer-small p {
-  font-size: 10px;
-  font-weight: lighter;
   line-height: 1.5;
   margin-bottom: 10px;
 }
-
 .footer-small a {
   color: var(--color-naranja);
   text-decoration: none;
-  font-size: 10px;
-  font-weight: lighter;
   line-height: 1.5;
 }
-
 .footer-small b {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
 }
-
 .footer-small .horizontal-line + p {
   margin-top: 20px;
 }
-
 .partnerimg {
   display: block;
   width: 250px;
   height: auto;
-  text-align: center;
   padding-top: 10px;
   padding-bottom: 20px;
 }
